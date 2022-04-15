@@ -6,33 +6,20 @@ const { singularName, pluralName } = getModelName('moneyBiller');
 
 const schema = new Schema(
   {
+
     name: {
       type: String,
     },
-    lastName: {
+    service: {
       type: String,
     },
-    email: {
+    urlApi: {
       type: String,
     },
-    company: {
+    documento: {
       type: String,
     },
-    DUI: {
-      type: String,
-    },
-    password: {
-      type: String,
-    },
-    tel: {
-      type: String,
-    },
-    address: {
-      type: String,
-    },
-    profileId: {
-      type: String,
-    },
+
     status: {
       type: String,
       enum: ['active', 'inactive', 'deleted'],

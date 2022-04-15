@@ -1,6 +1,6 @@
-import ExampleModule from './example.model';
+import ExampleModule from './servicios.model';
 
-export const getAllExample = async (req, res) => {
+export const getAllservice = async (req, res) => {
   const { offset, limit } = req.params;
 
   try {
