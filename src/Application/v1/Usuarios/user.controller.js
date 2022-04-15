@@ -1,6 +1,6 @@
 import ExampleModule from './user.model';
 
-export const getAllExample = async (req, res) => {
+export const getAllUser = async (req, res) => {
   const { offset, limit } = req.params;
 
   try {
