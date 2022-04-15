@@ -1,4 +1,4 @@
-import ExampleModule from './example.model';
+import ExampleModule from './user.model';
 
 export const getAllExample = async (req, res) => {
   const { offset, limit } = req.params;
