@@ -37,5 +37,5 @@ schema.set('toJSON', {
 });
 
 // rename name Example to singular Model
-export default mongoose.models[singularName] ||
-  mongoose.model(pluralName, schema);
+export default mongoose.models[singularName]
+  || mongoose.model(pluralName, schema);
