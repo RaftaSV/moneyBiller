@@ -2,16 +2,14 @@ import mongoose from 'mongoose';
 import getModelName from 'Utils/getModelName';
 
 const { Schema } = mongoose;
-const { singularName, pluralName } = getModelName('example');
+const { singularName, pluralName } = getModelName('moneyBiller');
 
 const schema = new Schema(
   {
-    fullName: {
+    monto: {
       type: String,
     },
-    email: {
-      type: String,
-    },
+
     status: {
       type: String,
       enum: ['active', 'inactive', 'deleted'],
