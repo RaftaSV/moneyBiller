@@ -1,6 +1,6 @@
-import ExampleModule from './example.model';
+import ExampleModule from './saldo.model';
 
-export const getAllExample = async (req, res) => {
+export const getAllsaldo = async (req, res) => {
   const { offset, limit } = req.params;
 
   try {
