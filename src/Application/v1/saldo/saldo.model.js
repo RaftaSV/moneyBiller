@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import getModelName from 'Utils/getModelName';
+import getModelName from '../money/src/Utils/getModelName';
 
 const { Schema } = mongoose;
 const { singularName, pluralName } = getModelName('moneyBiller');
