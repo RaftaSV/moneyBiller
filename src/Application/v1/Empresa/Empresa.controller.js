@@ -1,4 +1,4 @@
-import UserModule from './user.model';
+import UserModule from './Empresa.model';
 
 export const getAllUser = async (req, res) => {
   const { offset, limit } = req.params;

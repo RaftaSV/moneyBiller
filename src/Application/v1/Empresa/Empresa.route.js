@@ -5,7 +5,7 @@ import {
   getUserById,
   updateUser,
   deleteUser
-} from './user.controller';
+} from './Empresa.controller';
 
 const router = express.Router();
 
