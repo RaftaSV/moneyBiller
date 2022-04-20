@@ -2,24 +2,17 @@ import mongoose from 'mongoose';
 import getModelName from 'Utils/getModelName';
 
 const { Schema } = mongoose;
-const { singularName, pluralName } = getModelName('Users');
+const { singularName, pluralName } = getModelName('Empresa');
 
 const schema = new Schema(
   {
-
     name: {
-      type: String,
-    },
-    lastName: {
       type: String,
     },
     email: {
       type: String,
     },
-    company: {
-      type: String,
-    },
-    DUI: {
+    NIT: {
       type: String,
     },
     password: {
@@ -31,12 +24,6 @@ const schema = new Schema(
     address: {
       type: String,
     },
-    typeUser: {
-      type: String,
-      enum: ['admin', 'user', 'member'],
-      default: 'user',
-    },
-
     status: {
       type: String,
       enum: ['active', 'inactive', 'deleted'],
