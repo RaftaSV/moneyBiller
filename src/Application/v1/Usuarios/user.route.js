@@ -8,7 +8,6 @@ import {
 } from './user.controller';
 
 const router = express.Router();
-
 router.get('/', getAllUser);
 router.get('/:idUser', getUserById);
 router.post('/', createUser);

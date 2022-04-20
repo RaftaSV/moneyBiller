@@ -6,7 +6,6 @@ const { singularName, pluralName } = getModelName('Users');
 
 const schema = new Schema(
   {
-
     name: {
       type: String,
     },

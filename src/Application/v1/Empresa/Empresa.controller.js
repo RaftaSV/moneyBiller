@@ -73,22 +73,21 @@ export const createEmpresa = async (req, res) => {
 
 export const updateEmpresa = async (req, res) => {
   const { body, params } = req;
-  const { idEmpresa } = params;
+  const { idCompany } = params;
 
   if (!body) {
     return res.status(400).json({
       message: 'Hacen faltan campos',
     });
   }
-
   try {
     const data = await EmpresaModule.findOneAndUpdate(
-      { _id: idEmpresa },
+      { _id: idCompany },
       {
         name: body.name,
         email: body.email,
         NIT: body.NIT,
-        pass: body.pass,
+        password: body.password,
         tel: body.tel,
         address: body.address,
         status: body.status
