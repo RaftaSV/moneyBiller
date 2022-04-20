@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import getModelName from '../money/src/Utils/getModelName';
+import getModelName from 'Utils/getModelName';
 
 const { Schema } = mongoose;
 const { singularName, pluralName } = getModelName('moneyBiller');
@@ -14,10 +14,6 @@ const schema = new Schema(
       type: String,
       enum: ['active', 'inactive', 'deleted'],
       default: 'active',
-    },
-    created_at: {
-      type: Date,
-      default: Date.now,
     },
   },
   {

@@ -6,6 +6,7 @@ const { singularName, pluralName } = getModelName('Users');
 
 const schema = new Schema(
   {
+
     name: {
       type: String,
     },
@@ -32,9 +33,10 @@ const schema = new Schema(
     },
     typeUser: {
       type: String,
-      enum: ['admin', 'user', 'company'],
+      enum: ['admin', 'user', 'member'],
       default: 'user',
     },
+
     status: {
       type: String,
       enum: ['active', 'inactive', 'deleted'],
@@ -56,5 +58,5 @@ schema.set('toJSON', {
 });
 
 // rename name Example to singular Model
-export default mongoose.models[singularName] ||
-  mongoose.model(pluralName, schema);
+export default mongoose.models[singularName]
+ || mongoose.model(pluralName, schema);

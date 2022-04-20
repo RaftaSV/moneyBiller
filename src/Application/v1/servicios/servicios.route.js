@@ -1,9 +1,9 @@
 import express from 'express';
-import { getAllExample, createExample } from './example.controller';
+import { getAllservicios, createExample } from './servicios.controller';
 
 const router = express.Router();
 
-router.get('/', getAllExample);
+router.get('/', getAllservicios);
 router.post('/', createExample);
 
 export default router;

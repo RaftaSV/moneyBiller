@@ -1,10 +1,10 @@
-import SaldoModel from './saldo.model';
+import ExampleModule from './saldo.model';
 
 export const getAllsaldo = async (req, res) => {
   const { offset, limit } = req.params;
 
   try {
-    const data = await SaldoModel.find().skip(offset).limit(limit);
+    const data = await ExampleModule.find().skip(offset).limit(limit);
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);

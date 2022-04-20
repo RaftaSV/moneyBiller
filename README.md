@@ -1,6 +1,4 @@
-# CREATE RIVAS NODE
 
-My personal npx command for create nodejs package
 
 ## Configuration
 
@@ -34,7 +32,3 @@ npm run dev
 ### Create a model
 
 For create a model you need modify the file with extension `.model.js`
-
-_After insert project name and choose template to create_
-
-Created with love ❤️
