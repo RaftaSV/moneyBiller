@@ -5,6 +5,6 @@ import EmpresaRoutes from './Empresa/Empresa.route';
 const router = express.Router();
 
 router.use('/Users', userRoutes);
-router.use('/Empresa', EmpresaRoutes);
+router.use('/Companies', EmpresaRoutes);
 
 export default router;

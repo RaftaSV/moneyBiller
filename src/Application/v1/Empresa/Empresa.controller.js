@@ -16,9 +16,9 @@ export const getAllEmpresa = async (req, res) => {
 };
 
 export const getEmpresaById = async (req, res) => {
-  const { idEmpresa } = req.params;
+  const { idCompany } = req.params;
   try {
-    const data = await EmpresaModule.findById(idEmpresa);
+    const data = await EmpresaModule.findById(idCompany);
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({
@@ -104,17 +104,15 @@ export const updateEmpresa = async (req, res) => {
 
 export const deleteEmpresa = async (req, res) => {
   const { params } = req;
-  const { idEmpresa } = params;
-
+  const { idCompany } = params;
   try {
     const data = await EmpresaModule.findOneAndUpdate(
-      { _id: idEmpresa },
+      { _id: idCompany },
       { status: 'inactive' }
     );
 
     return res.status(200).json({
-      ...data,
-      status: 'inactive',
+      ...data
     });
   } catch (error) {
     return res.status(500).json({

@@ -8,10 +8,9 @@ import {
 } from './Empresa.controller';
 
 const router = express.Router();
-
 router.get('/', getAllEmpresa);
-router.get('/:idEmpresa', getEmpresaById);
+router.get('/:idCompany', getEmpresaById);
 router.post('/', createEmpresa);
 router.put('/:idCompany', updateEmpresa);
-router.delete('/:idEmpresa', deleteEmpresa);
+router.delete('/:idCompany', deleteEmpresa);
 export default router;
