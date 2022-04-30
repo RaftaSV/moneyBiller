@@ -1,9 +1,13 @@
 import express from 'express';
-import { getAllservicios, createExample } from './servicios.controller';
+import {
+  getAllServices,
+  createService,
+  getServiceByCompany,
+} from './servicios.controller';
 
 const router = express.Router();
-
-router.get('/', getAllservicios);
-router.post('/', createExample);
+router.get('/', getAllServices);
+router.get('/:companyId', getServiceByCompany);
+router.post('/', createService);
 
 export default router;

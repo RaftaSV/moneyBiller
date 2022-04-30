@@ -1,15 +1,44 @@
 import mongoose from 'mongoose';
-import getModelName from '../money/src/Utils/getModelName';
+import getModelName from 'utils/getModelName';
 
 const { Schema } = mongoose;
-const { singularName, pluralName } = getModelName('moneyBiller');
+const { singularName, pluralName } = getModelName('services');
 
 const schema = new Schema(
   {
-    monto: {
+    serviceName: {
       type: String,
     },
-
+    invoiceUrl: {
+      type: String,
+    },
+    invoiceMethod: {
+      type: String,
+    },
+    numberInvoice: {
+      type: String,
+    },
+    nameInvoiceJSON: {
+      type: String,
+    },
+    nameInvoiceDateJSON: {
+      type: String,
+    },
+    nameInvoiceTotalJSON: {
+      type: String,
+    },
+    payInvoiceUrl: {
+      type: String,
+    },
+    payInvoiceMethod: {
+      type: String,
+    },
+    DocumentInvoice: {
+      type: String,
+    },
+    companyId: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ['active', 'inactive', 'deleted'],
