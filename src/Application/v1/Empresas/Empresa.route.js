@@ -1,16 +1,16 @@
 import express from 'express';
 import {
-  getAllEmpresa,
-  createEmpresa,
-  getEmpresaById,
-  updateEmpresa,
-  deleteEmpresa
+  getAllCompanies,
+  createCompany,
+  getCompanyById,
+  updateCompany,
+  deleteCompany
 } from './Empresa.controller';
 
 const router = express.Router();
-router.get('/', getAllEmpresa);
-router.get('/:idCompany', getEmpresaById);
-router.post('/', createEmpresa);
-router.put('/:idCompany', updateEmpresa);
-router.delete('/:idCompany', deleteEmpresa);
+router.get('/', getAllCompanies);
+router.get('/:idCompany', getCompanyById);
+router.post('/', createCompany);
+router.put('/:idCompany', updateCompany);
+router.delete('/:idCompany', deleteCompany);
 export default router;

@@ -1,10 +1,10 @@
-import EmpresaModule from './Empresa.model';
+import companiesModule from './Empresa.model';
 
-export const getAllEmpresa = async (req, res) => {
+export const getAllCompanies = async (req, res) => {
   const { offset, limit } = req.params;
   const { status = 'active' } = req.query;
   try {
-    const data = await EmpresaModule.find({ status, }).skip(offset).limit(limit);
+    const data = await companiesModule.find({ status, }).skip(offset).limit(limit);
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
@@ -15,10 +15,10 @@ export const getAllEmpresa = async (req, res) => {
   }
 };
 
-export const getEmpresaById = async (req, res) => {
+export const getCompanyById = async (req, res) => {
   const { idCompany } = req.params;
   try {
-    const data = await EmpresaModule.findById(idCompany);
+    const data = await companiesModule.findById(idCompany);
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({
@@ -28,7 +28,7 @@ export const getEmpresaById = async (req, res) => {
   }
 };
 
-export const createEmpresa = async (req, res) => {
+export const createCompany = async (req, res) => {
   const {
     name,
     email,
@@ -51,7 +51,7 @@ export const createEmpresa = async (req, res) => {
   }
 
   try {
-    const data = await EmpresaModule.create({
+    const data = await companiesModule.create({
       name,
       email,
       NIT,
@@ -70,7 +70,7 @@ export const createEmpresa = async (req, res) => {
   }
 };
 
-export const updateEmpresa = async (req, res) => {
+export const updateCompany = async (req, res) => {
   const { body, params } = req;
   const { idCompany } = params;
 
@@ -80,7 +80,7 @@ export const updateEmpresa = async (req, res) => {
     });
   }
   try {
-    const data = await EmpresaModule.findOneAndUpdate(
+    const data = await companiesModule.findOneAndUpdate(
       { _id: idCompany },
       {
         name: body.name,
@@ -101,11 +101,11 @@ export const updateEmpresa = async (req, res) => {
   }
 };
 
-export const deleteEmpresa = async (req, res) => {
+export const deleteCompany = async (req, res) => {
   const { params } = req;
   const { idCompany } = params;
   try {
-    const data = await EmpresaModule.findOneAndUpdate(
+    const data = await companiesModule.findOneAndUpdate(
       { _id: idCompany },
       { status: 'inactive' }
     );

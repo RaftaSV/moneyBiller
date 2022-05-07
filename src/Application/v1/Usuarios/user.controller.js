@@ -1,6 +1,6 @@
 import UserModule from './user.model';
 
-export const getAllUser = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   const { offset, limit } = req.params;
   const { status = 'active' } = req.query;
   try {
@@ -41,14 +41,11 @@ export const createUser = async (req, res) => {
     typeUser,
     status,
   } = req.body;
-  console.log(req.body);
-  if (
-    !name || !lastName || !email || !DUI
-    || !password || !tel || !address || !typeUser
+  if (!name || !lastName || !email || !DUI
+        || !password || !tel || !address || !typeUser
   ) {
     return res.status(400).json({
-      message:
-        `${'Faltan datos, la consulta debe contener name, lastName, email, company, DUI, password,'
+      message: `${'Faltan datos, la consulta debe contener name, lastName, email, company, DUI, password,'
         + ' tel, address, typeUser, status'}`,
       code: 400,
     });
@@ -88,21 +85,18 @@ export const updateUser = async (req, res) => {
   }
 
   try {
-    const data = await UserModule.findOneAndUpdate(
-      { _id: idUser },
-      {
-        name: body.name,
-        lastName: body.lastName,
-        email: body.email,
-        company: body.company,
-        DUI: body.DUI,
-        pass: body.pass,
-        tel: body.tel,
-        address: body.address,
-        typeUser: body.typeUser,
-        status: body.status
-      }
-    );
+    const data = await UserModule.findOneAndUpdate({ _id: idUser }, {
+      name: body.name,
+      lastName: body.lastName,
+      email: body.email,
+      company: body.company,
+      DUI: body.DUI,
+      pass: body.pass,
+      tel: body.tel,
+      address: body.address,
+      typeUser: body.typeUser,
+      status: body.status
+    });
     return res.status(200).json(Object.assign(data, body));
   } catch (error) {
     return res.status(500).json({
@@ -117,10 +111,7 @@ export const deleteUser = async (req, res) => {
   const { idUser } = params;
 
   try {
-    const data = await UserModule.findOneAndUpdate(
-      { _id: idUser },
-      { status: 'inactive' }
-    );
+    const data = await UserModule.findOneAndUpdate({ _id: idUser }, { status: 'inactive' });
 
     return res.status(200).json({
       ...data,
