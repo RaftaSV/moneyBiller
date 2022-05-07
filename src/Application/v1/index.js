@@ -1,6 +1,6 @@
 import express from 'express';
 import userRoutes from './Usuarios/user.route';
-import companyRoutes from './Empresa/Empresa.route';
+import companyRoutes from './Empresas/Empresa.route';
 import servicesRoutes from './Servicios/servicios.route';
 import userServicesRoute from './ServiciosUsuario/serviciosUsuario.route';
 

@@ -38,7 +38,6 @@ export const createEmpresa = async (req, res) => {
     address,
     status,
   } = req.body;
-  console.log(req.body);
   if (
     !name || !email || !NIT
     || !password || !tel || !address

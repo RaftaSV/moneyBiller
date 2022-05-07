@@ -1,42 +1,27 @@
 import mongoose from 'mongoose';
-import getModelName from 'utils/getModelName';
+import getModelName from 'Utils/getModelName';
 
 const { Schema } = mongoose;
-const { singularName, pluralName } = getModelName('services');
+const { singularName, pluralName } = getModelName('Companies');
 
 const schema = new Schema(
   {
-    serviceName: {
+    name: {
       type: String,
     },
-    invoiceUrl: {
+    email: {
       type: String,
     },
-    invoiceMethod: {
+    NIT: {
       type: String,
     },
-    numberInvoice: {
+    password: {
       type: String,
     },
-    nameInvoiceJSON: {
+    tel: {
       type: String,
     },
-    nameInvoiceDateJSON: {
-      type: String,
-    },
-    nameInvoiceTotalJSON: {
-      type: String,
-    },
-    payInvoiceUrl: {
-      type: String,
-    },
-    payInvoiceMethod: {
-      type: String,
-    },
-    DocumentInvoice: {
-      type: String,
-    },
-    companyId: {
+    address: {
       type: String,
     },
     status: {
@@ -61,4 +46,4 @@ schema.set('toJSON', {
 
 // rename name Example to singular Model
 export default mongoose.models[singularName]
-  || mongoose.model(pluralName, schema);
+ || mongoose.model(pluralName, schema);
