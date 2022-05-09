@@ -1,23 +1,26 @@
 import mongoose from 'mongoose';
-import getModelName from 'Utils/getModelName';
+import getModelName from '../../../Utils/getModelName';
 
 const { Schema } = mongoose;
 
-const { singularName, pluralName } = getModelName('Buys');
+const { singularName, pluralName } = getModelName('recors');
 
 const schema = new Schema(
   {
+    numbersInvoice: {
+      type: String
+    },
+    amount: {
+      type: String
+    },
     date: {
       type: Date,
-      default: Date.now,
-    },
-    buyAmount: {
-      type: String
+      default: Date.now
     },
     idUser: {
       type: String
     },
-    numbersCard: {
+    cardNumber: {
       type: String
     }
   },
@@ -25,6 +28,7 @@ const schema = new Schema(
     versionKey: false,
   }
 );
+
 // Ensure virtual fields are serialised.
 schema.set('toJSON', {
   virtuals: true,

@@ -1,4 +1,8 @@
 import UserModule from './user.model';
+import balanceModel from '../Saldo/balance.model';
+import { createBalance } from '../Saldo/balance.controller';
+
+const SHA1 = require('crypto-js/sha1');
 
 export const getAllUsers = async (req, res) => {
   const { offset, limit } = req.params;
@@ -35,14 +39,14 @@ export const createUser = async (req, res) => {
     email,
     company,
     DUI,
-    password,
+    passwords,
     tel,
     address,
     typeUser,
     status,
   } = req.body;
   if (!name || !lastName || !email || !DUI
-        || !password || !tel || !address || !typeUser
+        || !passwords || !tel || !address || !typeUser
   ) {
     return res.status(400).json({
       message: `${'Faltan datos, la consulta debe contener name, lastName, email, company, DUI, password,'
@@ -50,7 +54,7 @@ export const createUser = async (req, res) => {
       code: 400,
     });
   }
-
+  const password = await SHA1(passwords);
   try {
     const data = await UserModule.create({
       name,
@@ -64,6 +68,9 @@ export const createUser = async (req, res) => {
       typeUser,
       status,
     });
+    if (data.typeUser === 'member') {
+      createBalance(data._id);
+    }
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
@@ -85,20 +92,23 @@ export const updateUser = async (req, res) => {
   }
 
   try {
-    const data = await UserModule.findOneAndUpdate({ _id: idUser }, {
+    const passwordHash = SHA1(body.pass);
+    await UserModule.findOneAndUpdate({ _id: idUser }, {
       name: body.name,
       lastName: body.lastName,
       email: body.email,
       company: body.company,
       DUI: body.DUI,
-      pass: body.pass,
+      password: passwordHash.toString(),
       tel: body.tel,
       address: body.address,
       typeUser: body.typeUser,
       status: body.status
     });
-    return res.status(200).json(Object.assign(data, body));
+    const data = await UserModule.findById(idUser);
+    return res.status(200).json(data);
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       code: 500,
       message: 'No se pudo actualizar el registro',
