@@ -33,4 +33,8 @@ export const login = async (req, res) => {
 export const sessionDestroy = async (req, res) => {
   console.log(req.session.idUser);
   req.session.destroy();
+  res.status(200).json({
+    message: 'Sesion destruida',
+    code: 200,
+  });
 };
