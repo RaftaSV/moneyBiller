@@ -1,4 +1,4 @@
-import serviceModule from './servicios.model';
+import serviceModule from './service.model';
 
 export const getAllServices = async (req, res) => {
   const { offset, limit } = req.params;

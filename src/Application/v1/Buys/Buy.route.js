@@ -4,7 +4,7 @@ import {
   createBuy,
   getAllBuys,
   getBuyByIdUser
-} from './Compras.controller';
+} from './Buy.controller';
 
 const router = express.Router();
 

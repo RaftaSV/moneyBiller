@@ -1,8 +1,9 @@
 import express from 'express';
 import expressSession from 'express-session';
-
 import getConfig from 'config';
 import { initializeDB } from './db';
+
+const bodyParser = require('body-parser');
 
 const { port } = getConfig();
 
@@ -13,6 +14,8 @@ app.use(expressSession({
   resave: true,
   saveUninitialized: true
 }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // creating Server
 const initializeServer = async (routes) => {

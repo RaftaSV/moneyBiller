@@ -4,7 +4,7 @@ import {
   createUserService,
   deleteUserService,
   getServicesByUser
-} from './serviciosUsuario.controller';
+} from './servicesUser.controller';
 
 const router = express.Router();
 router.get('/', getAllServicesUser);

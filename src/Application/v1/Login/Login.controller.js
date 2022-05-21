@@ -1,4 +1,4 @@
-import UserModule from '../Usuarios/user.model';
+import UserModule from '../User/user.model';
 
 const SHA1 = require('crypto-js/sha1');
 

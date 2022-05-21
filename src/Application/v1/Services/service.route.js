@@ -5,7 +5,7 @@ import {
   getServiceByCompany,
   updateService,
   deleteService
-} from './servicios.controller';
+} from './service.controller';
 
 const router = express.Router();
 router.get('/', getAllServices);

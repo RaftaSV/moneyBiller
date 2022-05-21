@@ -6,7 +6,299 @@
 	},
 	"item": [
 		{
-			"name": "User",
+			"name": "Services",
+			"item": [
+				{
+					"name": "GetServiceForCompany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Services/62604e17c011220d038708d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services",
+								"62604e17c011220d038708d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertService",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serviceName\": \"Matricula\",\r\n    \"invoiceUrl\": \"http://localhost:8000/v1/Invoice\",\r\n    \"invoiceMethod\":\"post\",\r\n    \"nameInvoiceJSON\": \"student\",\r\n    \"numberInvoice\" : \"idInvoice\",\r\n    \"nameInvoiceDateJSON\": \"expiration\",\r\n    \"nameInvoiceTotalJSON\": \"total\",\r\n    \"payInvoiceUrl\":  \"http://localhost:8000/v1/Invoice\",\r\n    \"payInvoiceMethod\": \"get\",\r\n    \"DocumentInvoice\": \"Carnet\",\r\n    \"companyId\": \"6279ae40fb2f9056c75cedce\",\r\n    \"status\":\"active\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateService",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serviceName\": \"Pagos\",\r\n    \"invoiceUrl\": \"http://localhost:8000/v1/Pay\",\r\n    \"payInvoiceMethod\": \"put\",\r\n    \"status\": \"active\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Services/626d6e3f5ebe60ada3bd1093",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services",
+								"626d6e3f5ebe60ada3bd1093"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteService",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Services/626d6e3f5ebe60ada3bd1093",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services",
+								"626d6e3f5ebe60ada3bd1093"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServicesUser",
+			"item": [
+				{
+					"name": "GetServiceForCompany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Services/62604e17c011220d038708d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services",
+								"62604e17c011220d038708d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUserServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/UserServices/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"UserServices",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllServicesByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/UserServices/6259c5f4a133c45df48090c5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"UserServices",
+								"6259c5f4a133c45df48090c5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertUserService",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": \"6279ae40fb2f9056c75cedce\",\r\n    \"idService\": \"6279ae92fb2f9056c75cedd1\",\r\n    \"status\":\"active\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/UserServices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"UserServices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserService",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/UserServices/626f322d15b69d397c2d915f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"UserServices",
+								"626f322d15b69d397c2d915f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteService",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Services/626d6e3f5ebe60ada3bd1093",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Services",
+								"626d6e3f5ebe60ada3bd1093"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
 			"item": [
 				{
 					"name": "GetAllUsers",
@@ -76,7 +368,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Migue Antonio\",\r\n    \"lastName\": \"Gonzalez Portillo\",\r\n    \"email\" : \"gp0555032019@unab.edu.sv\",\r\n    \"company\": \"F&GSTORE\",\r\n    \"DUI\" : \"05408734-7\",\r\n    \"password\": \"Hola123\",\r\n    \"tel\": \"6311-4859\",\r\n    \"address\": \"Nueva Concepcion\",\r\n    \"typeUser\": \"company\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Alvaro Elias\",\r\n    \"lastName\": \"Mendez Lopez\",\r\n    \"email\" : \"gp0555032019@unab.edu.sv\",\r\n    \"company\": \"F&GSTORE\",\r\n    \"DUI\" : \"05408734-6\",\r\n    \"passwords\": \"123\",\r\n    \"tel\": \"6311-4859\",\r\n    \"address\": \"Nueva Concepcion\",\r\n    \"typeUser\": \"member\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -105,7 +397,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"status\": \"active\",\r\n    \"name\":\"Marvin jose\"\r\n}",
+							"raw": "{\r\n    \"pass\": \"123456\",\r\n    \"status\": \"active\",\r\n    \"name\":\"Marvin Elias\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -113,7 +405,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/V1/Users/6259c93adcfa48c260b4ba6a",
+							"raw": "http://localhost:8000/V1/Users/6279abfbfb2f9056c75cedba",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -122,7 +414,7 @@
 							"path": [
 								"V1",
 								"Users",
-								"6259c93adcfa48c260b4ba6a"
+								"6279abfbfb2f9056c75cedba"
 							]
 						}
 					},
@@ -161,7 +453,7 @@
 			]
 		},
 		{
-			"name": "Company",
+			"name": "Companies",
 			"item": [
 				{
 					"name": "GetAllCompanies",
@@ -217,13 +509,127 @@
 					"response": []
 				},
 				{
-					"name": "InsertCompany",
+					"name": "UpdateCompanyImage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/rafap/OneDrive/Escritorio/F&G STORE/Diseños/Cojines/cojines myhero.png"
+								},
+								{
+									"key": "name",
+									"value": "UNAB",
+									"contentType": "",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "go0555032019@unab.edu.sv",
+									"type": "default"
+								},
+								{
+									"key": "NIT",
+									"value": "054087348",
+									"type": "default"
+								},
+								{
+									"key": "passwords",
+									"value": "12345678",
+									"type": "default"
+								},
+								{
+									"key": "tel",
+									"value": "63114859",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Nueva Concepcion",
+									"type": "default"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Companies/62896a99d242dbf45310d591",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Companies",
+								"62896a99d242dbf45310d591"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertCompanyImage",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": " {\r\n    \"name\": \"proyec\",\r\n    \"email\": \"proyec@unab.edu.sv\",\r\n    \"NIT\": \"0491524452541\",\r\n    \"password\": \"52541125\",\r\n    \"tel\": \"525252525\", \r\n    \"address\": \"chalate\",\r\n    \"status\": \"active\"\r\n  }",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/rafap/OneDrive/Escritorio/F&G STORE/Diseños/Cojines/cojines myhero.png"
+								},
+								{
+									"key": "name",
+									"value": "UNAB",
+									"contentType": "",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "go0555032019@unab.edu.sv",
+									"type": "default"
+								},
+								{
+									"key": "NIT",
+									"value": "054087348",
+									"type": "default"
+								},
+								{
+									"key": "passwords",
+									"value": "12345678",
+									"type": "default"
+								},
+								{
+									"key": "tel",
+									"value": "63114859",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Nueva Concepcion",
+									"type": "default"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "default"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,36 +646,6 @@
 							"path": [
 								"v1",
 								"Companies"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateCompany",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\r\n        \"name\": \"proyect number one\",\r\n        \"NIT\": \"0491524452544\",\r\n         \"status\": \"active\"\r\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/v1/Companies/62604e17c011220d038708dd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"v1",
-								"Companies",
-								"62604e17c011220d038708dd"
 							]
 						}
 					},
@@ -300,6 +676,185 @@
 								"v1",
 								"Companies",
 								"62604e17c011220d038708dd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Balances",
+			"item": [
+				{
+					"name": "GetAllBalances",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Balances",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Balances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBalanceByIdUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Balances/6279abfbfb2f9056c75cedba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Balances",
+								"6279abfbfb2f9056c75cedba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buys",
+			"item": [
+				{
+					"name": "CreateBuy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"buyAmount\":\"1\",\r\n    \"numberCard\": \"3456765434567885\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/buys",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"buys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllBuys",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/buys/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"buys",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBuyByIdUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/buys/62784f54425c17ac08b23f50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"buys",
+								"62784f54425c17ac08b23f50"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\" : \"05408734-6\",\r\n    \"pass\" : \"123456\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SessionDestroy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Login"
 							]
 						}
 					},

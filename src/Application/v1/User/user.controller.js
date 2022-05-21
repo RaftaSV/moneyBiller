@@ -1,6 +1,5 @@
 import UserModule from './user.model';
-import balanceModel from '../Saldo/balance.model';
-import { createBalance } from '../Saldo/balance.controller';
+import { createBalance } from '../Balances/balance.controller';
 
 const SHA1 = require('crypto-js/sha1');
 
@@ -69,7 +68,7 @@ export const createUser = async (req, res) => {
       status,
     });
     if (data.typeUser === 'member') {
-      createBalance(data._id);
+      await createBalance(data._id);
     }
     return res.status(200).json(data);
   } catch (error) {

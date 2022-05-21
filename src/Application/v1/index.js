@@ -1,11 +1,12 @@
 import express from 'express';
-import userRoutes from './Usuarios/user.route';
-import companyRoutes from './Empresas/Empresa.route';
-import servicesRoutes from './Servicios/servicios.route';
-import userServicesRoute from './ServiciosUsuario/serviciosUsuario.route';
-import balancesRoute from './Saldo/balance.route';
-import buysRouter from './Compras/Compras.route';
+import userRoutes from './User/user.route';
+import companyRoutes from './Companies/Company.route';
+import servicesRoutes from './Services/service.route';
+import userServicesRoute from './ServicesUser/servicesUser.route';
+import balancesRoute from './Balances/balance.route';
+import buysRouter from './Buys/Buy.route';
 import loginRouter from './Login/Login.route';
+import Images from './Images/images.route';
 
 const router = express.Router();
 
@@ -16,5 +17,6 @@ router.use('/UserServices', userServicesRoute);
 router.use('/Balances', balancesRoute);
 router.use('/buys', buysRouter);
 router.use('/Login', loginRouter);
+router.use('/Images', Images);
 
 export default router;

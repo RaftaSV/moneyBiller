@@ -1,6 +1,6 @@
-import balanceModel from '../Saldo/balance.model';
-import { updateBalance } from '../Saldo/balance.controller';
-import buysModel from './Compras.model';
+import balanceModel from '../Balances/balance.model';
+import { updateBalance } from '../Balances/balance.controller';
+import buysModel from './Buy.model';
 
 export const getAllBuys = async (req, res) => {
   try {
