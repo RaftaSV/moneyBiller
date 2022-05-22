@@ -861,6 +861,101 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "CreateInvoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Rafael Antonio Gonzalez Portillo\",\r\n   \"total\": \"16\",\r\n   \"date\":\"10-06-2022\",\r\n   \"DocumentType\":\"63114859\",\r\n   \"status\":\"Slope\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/Invoice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Invoice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllInvoicesByDocument",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Invoice/63114859",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Invoice",
+								"63114859"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PayInvoice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/Invoice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"Invoice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
