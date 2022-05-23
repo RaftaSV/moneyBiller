@@ -1,6 +1,8 @@
 import { uploadFile, moveFile } from 'Utils/dirFileMulter';
 import companiesModule from './Company.model';
-import  SHA1 from 'crypto-js/sha1';
+
+const SHA1 = require('crypto-js/sha1');
+
 export const getAllCompanies = async (req, res) => {
   const { offset, limit } = req.params;
   const { status = 'active' } = req.query;
@@ -101,6 +103,7 @@ export const updateCompany = async (req, res) => {
         });
       }
       try {
+        console.log(idCompany);
         const passwordHash = SHA1(body.passwords);
         const data = await companiesModule.findOneAndUpdate(
           { _id: idCompany },
@@ -119,11 +122,11 @@ export const updateCompany = async (req, res) => {
         } catch (error) {
           console.log(error);
         }
-        return res.status(200).json(Object.assign(data, body));
+        res.status(200).json(Object.assign(data, body));
       } catch (error) {
-        return res.status(500).json({
+        res.status(500).json({
           code: 500,
-          message: 'No se pudo actualizar el registro',
+          message: `No se pudo actualizar el registro ${error}`,
         });
       }
     };

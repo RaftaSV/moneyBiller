@@ -1,7 +1,6 @@
 import express from 'express';
 import {
   getAllCompanies,
-  // createCompany,
   getCompanyById,
   updateCompany,
   deleteCompany,
