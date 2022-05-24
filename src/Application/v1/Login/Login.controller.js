@@ -8,6 +8,7 @@ export const login = async (req, res) => {
     pass
   } = req.body;
   if (!user || !pass) {
+    console.log(`Se deben de llenar todos los campos ${user} ${pass}`);
     return res.status(400)
       .json({
         message: 'Se deben de llenar todos los campos',
@@ -17,11 +18,13 @@ export const login = async (req, res) => {
   const data = await UserModule.findOne({ DUI: `${user}`, password: `${SHA1(pass)}`, });
   try {
     if (data.toString().length > 1) {
+      console.log('session correcta');
       req.session.idUser = data.id;
       // console.log(req.session.idUser);
       return res.status(200).json(data);
     }
   } catch (error) {
+    console.log('Usuario o contraseña invalidos');
     return res.status(200)
       .json({
         message: 'Usuario o contraseña invalidos',
