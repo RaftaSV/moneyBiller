@@ -5,6 +5,8 @@ import { initializeDB } from './db';
 
 const bodyParser = require('body-parser');
 
+const cors = require('cors');
+
 const { port } = getConfig();
 
 const app = express();
@@ -16,6 +18,10 @@ app.use(expressSession({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors({
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
 
 // creating Server
 const initializeServer = async (routes) => {
