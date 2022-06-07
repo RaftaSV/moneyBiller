@@ -70,7 +70,9 @@ export const createUser = async (req, res) => {
     if (data.typeUser === 'member') {
       await createBalance(data._id);
     }
-    return res.status(200).json(data);
+    return res.status(200).json({
+      message: 'Registro exitoso'
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({

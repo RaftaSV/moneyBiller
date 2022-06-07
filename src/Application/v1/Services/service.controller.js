@@ -49,8 +49,6 @@ export const createService = async (req, res) => {
         payInvoiceUrl,
         payInvoiceMethod,
         DocumentInvoice,
-        companyId,
-        status
       } = req.body;
       if (!serviceName
         || !invoiceUrl
@@ -62,11 +60,9 @@ export const createService = async (req, res) => {
         || !payInvoiceUrl
         || !payInvoiceMethod
         || !DocumentInvoice
-        || !companyId
-        || !status
       ) {
         return res.status(400).json({
-          message: 'Faltan datos, la consulta debe contener',
+          message: `Faltan datos, la consulta debe contener ${req.body.file.originalname}`,
           code: 400,
         });
       }
@@ -82,8 +78,6 @@ export const createService = async (req, res) => {
           payInvoiceUrl,
           payInvoiceMethod,
           DocumentInvoice,
-          companyId,
-          status
         });
         try {
           const idService = data.id;
