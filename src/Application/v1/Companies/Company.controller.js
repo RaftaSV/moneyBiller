@@ -60,6 +60,7 @@ export const CreateCompaniesWithImage = async (req, res) => {
       }
       try {
         const password = await SHA1(passwords);
+        const image = req.file.originalname;
         const data = await companiesModule.create({
           name,
           email,
@@ -68,9 +69,10 @@ export const CreateCompaniesWithImage = async (req, res) => {
           tel,
           address,
           status,
+          image
         });
         try {
-          await moveFile(req.file.originalname, data.id, 'Companies');
+          await moveFile(req.file.originalname, `${data.id}${image}`, 'Companies');
         } catch (error) {
           console.log(error);
         }
@@ -114,11 +116,12 @@ export const updateCompany = async (req, res) => {
             password: passwordHash.toString(),
             tel: body.tel,
             address: body.address,
-            status: body.status
+            status: body.status,
+            image: req.file.originalname
           }
         );
         try {
-          await moveFile(`${req.file.originalname}`, `${idCompany}`, 'Companies');
+          await moveFile(`${req.file.originalname}`, `${idCompany}${req.file.originalname}`, 'Companies');
         } catch (error) {
           console.log(error);
         }

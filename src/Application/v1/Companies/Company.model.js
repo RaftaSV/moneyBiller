@@ -29,6 +29,9 @@ const schema = new Schema(
       enum: ['active', 'inactive', 'deleted'],
       default: 'active',
     },
+    image: {
+      type: String,
+    },
   },
   {
     versionKey: false,
