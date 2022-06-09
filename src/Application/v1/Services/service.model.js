@@ -39,6 +39,9 @@ const schema = new Schema(
     companyId: {
       type: String,
     },
+    image: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ['active', 'inactive', 'deleted'],

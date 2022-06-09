@@ -67,6 +67,7 @@ export const createService = async (req, res) => {
         });
       }
       try {
+        const image = req.file.originalname;
         const data = await serviceModule.create({
           serviceName,
           invoiceUrl,
@@ -78,10 +79,11 @@ export const createService = async (req, res) => {
           payInvoiceUrl,
           payInvoiceMethod,
           DocumentInvoice,
+          image
         });
         try {
           const idService = data.id;
-          await moveFile(`${req.file.originalname}`, `${idService}`, 'Services');
+          await moveFile(`${req.file.originalname}`, `${idService}${req.file.originalname}`, 'Services');
         } catch (error) {
           console.log(error);
         }
@@ -130,11 +132,12 @@ export const updateService = async (req, res) => {
             payInvoiceMethod: body.payInvoiceMethod,
             DocumentInvoice: body.DocumentInvoice,
             companyId: body.companyId,
-            status: body.status
+            status: body.status,
+            image: req.file.originalname
           }
         );
         try {
-          await moveFile(`${req.file.originalname}`, `${idService}`, 'Services');
+          await moveFile(`${req.file.originalname}`, `${idService}${req.file.originalname}`, 'Services');
         } catch (error) {
           console.log(error);
         }
