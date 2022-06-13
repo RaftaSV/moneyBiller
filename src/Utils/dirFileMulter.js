@@ -25,5 +25,13 @@ export const uploadFile = async () => {
 };
 
 export const moveFile = async (nameFile, newName, dir) => {
-  fs.copyFileSync(`public/uploads/Temp/${nameFile}`, `public/uploads/${dir}/${newName}.png`);
+  fs.copyFileSync(`public/uploads/Temp/${nameFile}`, `public/uploads/${dir}/${newName}`);
+};
+
+export const removeFile = async (name) => {
+  fs.unlink(`public/uploads/${name}`, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
 };

@@ -1,4 +1,4 @@
-import { moveFile, uploadFile } from 'Utils/dirFileMulter';
+import { moveFile, removeFile, uploadFile } from 'Utils/dirFileMulter';
 import serviceModule from './service.model';
 
 export const getAllServices = async (req, res) => {
@@ -117,6 +117,12 @@ export const updateService = async (req, res) => {
           code: 400,
         });
       }
+      let dataOdl;
+      try {
+        dataOdl = await serviceModule.findById(idService);
+      } catch (e) {
+        console.log(e);
+      }
       try {
         const data = await serviceModule.findOneAndUpdate(
           { _id: idService },
@@ -136,6 +142,11 @@ export const updateService = async (req, res) => {
             image: req.file.originalname
           }
         );
+        try {
+          await removeFile(`Services/${idService}${dataOdl.image}`);
+        } catch (error) {
+          console.log(error);
+        }
         try {
           await moveFile(`${req.file.originalname}`, `${idService}${req.file.originalname}`, 'Services');
         } catch (error) {

@@ -1,4 +1,4 @@
-import { uploadFile, moveFile } from 'Utils/dirFileMulter';
+import { uploadFile, moveFile, removeFile } from 'Utils/dirFileMulter';
 import companiesModule from './Company.model';
 
 const SHA1 = require('crypto-js/sha1');
@@ -105,8 +105,8 @@ export const updateCompany = async (req, res) => {
         });
       }
       try {
-        console.log(idCompany);
         const passwordHash = SHA1(body.passwords);
+        const dataOld = await companiesModule.findById(idCompany);
         const data = await companiesModule.findOneAndUpdate(
           { _id: idCompany },
           {
@@ -121,6 +121,7 @@ export const updateCompany = async (req, res) => {
           }
         );
         try {
+          await removeFile(`Companies/${dataOld.id}${dataOld.image}`);
           await moveFile(`${req.file.originalname}`, `${idCompany}${req.file.originalname}`, 'Companies');
         } catch (error) {
           console.log(error);
