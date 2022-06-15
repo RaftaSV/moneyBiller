@@ -5,9 +5,22 @@ const SHA1 = require('crypto-js/sha1');
 
 export const getAllUsers = async (req, res) => {
   const { offset, limit } = req.params;
-  const { status = 'active' } = req.query;
   try {
-    const data = await UserModule.find({ status, }).skip(offset).limit(limit);
+    const data = await UserModule.find({ status: 'active', typeUser: 'user', }).skip(offset).limit(limit);
+    return res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: 'Error al obtener los datos',
+      code: 500,
+    });
+  }
+};
+
+export const getAllMember = async (req, res) => {
+  const { offset, limit } = req.params;
+  try {
+    const data = await UserModule.find({ status: 'active', typeUser: 'member', }).skip(offset).limit(limit);
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
