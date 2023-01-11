@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Api created by create-rivas-node",
   "main": "src/main.js",
-  "author": "rivaslive",
+  "author": "raftaSv",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -16,9 +16,15 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
     "dotenv": "^14.2.0",
-    "express": "^4.17.2",
-    "mongoose": "^6.1.7"
+    "express": "^4.18.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.7",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.16"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -30,7 +36,6 @@
     "eslint": "8.2.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.25.2",
-    "nodemon": "^2.0.15",
     "prettier": "^2.5.1"
   }
 }
